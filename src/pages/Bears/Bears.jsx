@@ -1,11 +1,12 @@
 import React from 'react';
 import './bears.scss';
+import BearList from "../../components/BearList/BearList";
 
 const Bears = () => {
     return (
-        <div>
-            Bears
-        </div>
+        <section className='bear--container container'>
+            <BearList />
+        </section>
     );
 };
 
