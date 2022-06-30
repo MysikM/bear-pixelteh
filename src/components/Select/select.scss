@@ -1,0 +1,50 @@
+@use '../../sass' as *;
+
+.custom-select {
+  margin: 2rem auto;
+  position: relative;
+  width: 250px;
+  color: $background;
+
+  &--title {
+    font-size: 1rem;
+    background-color: $text-color;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  &--dropdown {
+    position: absolute;
+    width: 100%;
+    background-color: $text-color;
+    color: $background;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    border-radius: 8px;
+    transition: 0.5s;
+    top: 50px;
+
+    &__open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    li {
+      padding: 0.5rem;
+      transition: 0.2s;
+      cursor: pointer;
+
+      &.active {
+        color: $blue;
+        font-weight: bold;
+      }
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}

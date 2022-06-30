@@ -38,13 +38,19 @@ const initialState = {
     bear: {},
     loading: false,
     error: null,
+    sort: null,
 };
 
 const bearSlice = createSlice({
     name: 'bear',
     initialState,
+    reducers: {
+        changeSelect: (state, action) => {
+            state.sort = action.payload;
+        }
+    },
     extraReducers: {
-        [fetchBears.pending]: (state, action)=> {
+        [fetchBears.pending]: (state)=> {
             state.loading = true;
             state.error = null;
         },
@@ -57,7 +63,7 @@ const bearSlice = createSlice({
             state.loading = false;
             state.error = action.payload.message;
         },
-        [fetchBearById.pending]: (state, action)=> {
+        [fetchBearById.pending]: (state)=> {
             state.loading = true;
             state.error = null;
         },
@@ -74,5 +80,5 @@ const bearSlice = createSlice({
 })
 
 
-
+export const {changeSelect} = bearSlice.actions;
 export default bearSlice.reducer
