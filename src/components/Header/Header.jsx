@@ -1,22 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './header.scss'
 import {categoryBears} from "../../data/data";
-import {NavLink} from "react-router-dom";
 
 const Header = () => {
+    const [activeViews, setActiveViews] = useState('');
+    const handleSelect = (category) => {
+        setActiveViews(category);
+    };
+
     return (
         <header className='header'>
             <nav className='header--container container'>
                 <ul className='header--menu'>
                     {
                         categoryBears.map(el => (
-                            <NavLink
-                                className='header--item'
+                            <li
+                                className={`header--item ${activeViews === el.searchCategory && 'active'}`}
                                 key={el.id}
-                                to={el.path}
+                                onClick={() => {handleSelect(el.searchCategory)}}
                             >
                                 {el.name}
-                            </NavLink>
+                            </li>
                         ) )
                     }
                 </ul>
