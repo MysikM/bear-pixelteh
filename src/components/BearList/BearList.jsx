@@ -10,6 +10,21 @@ const BearList = () => {
             <BearItem />
             <BearItem />
             <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
+            <BearItem />
         </ul>
     );
 };

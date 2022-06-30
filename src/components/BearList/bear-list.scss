@@ -2,5 +2,7 @@
 
 .bear--list {
   @include flex(flex-start, flex-start);
+  flex-wrap: wrap;
   gap: 1rem;
+  row-gap: 2rem;
 }
