@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import './bear.scss';
 import {fetchBearById} from "../../store/slices/bearSlice";
 import Preload from "../../components/Preload/Preload";
+import Title from "../../components/Title/Title";
 
 // • picture
 // • name
@@ -15,7 +16,7 @@ import Preload from "../../components/Preload/Preload";
 const Bear = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {bear, loading} = useSelector(state => state.bear);
+    const {bear, loading, error} = useSelector(state => state.bear);
     const {image_url, name, tagline, abv, description, food_pairing } = bear;
     useEffect(()=>{
             dispatch(fetchBearById(id));
@@ -24,6 +25,9 @@ const Bear = () => {
 
     if(loading) {
         return (<Preload/>)
+    }
+    if(error) {
+        return <Title title={error} />
     }
     return (
         <main className="bear-item">

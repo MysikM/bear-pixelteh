@@ -4,10 +4,11 @@ import './bear-list.scss';
 import {fetchBears} from "../../store/slices/bearSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Preload from "../Preload/Preload";
+import Title from "../Title/Title";
 
 const BearList = () => {
      const dispatch = useDispatch();
-     const {bears, loading} = useSelector(state => state.bear);
+     const {bears, loading, error} = useSelector(state => state.bear);
      useEffect(()=>{
                  dispatch(fetchBears());
          },
@@ -17,6 +18,9 @@ const BearList = () => {
         return (<Preload/>)
     }
 
+    if(error) {
+        return <Title title={error} />
+    }
     return (
         <ul className='bear--list'>
             {
