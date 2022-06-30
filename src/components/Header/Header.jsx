@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
 import './header.scss'
 import {categoryBears} from "../../data/data";
+import {useDispatch} from "react-redux";
+import {fetchBears} from "../../store/slices/bearSlice";
 
 const Header = () => {
     const [activeViews, setActiveViews] = useState('');
+    const dispatch = useDispatch();
     const handleSelect = (category) => {
         setActiveViews(category);
+        dispatch(fetchBears(category));
     };
 
     return (

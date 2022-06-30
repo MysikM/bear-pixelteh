@@ -3,8 +3,8 @@ import {URL_BEARS} from "../../data/data";
 
 export const fetchBears = createAsyncThunk(
     'bears/fetch',
-    async () => {
-                const response = await fetch(URL_BEARS);
+    async (category) => {
+                const response = await fetch(`${URL_BEARS}${category ? '?food=' : ''}${category || ''}`);
                 const data = await response.json();
                 return data;
             }
