@@ -8,6 +8,16 @@ export const fetchBears = createAsyncThunk(
                 const data = await response.json();
                 return data;
             }
+);
+
+export const fetchBearById = createAsyncThunk(
+    'bearById/fetch',
+    async (id) => {
+        const response = await fetch(`${URL_BEARS}/${id}`);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }
 )
 
 const initialState = {
@@ -29,6 +39,17 @@ const bearSlice = createSlice({
             state.bears = [...action.payload];
         },
         [fetchBears.rejected]: (state, action)=> {
+            state.loading = false;
+            state.error = action.payload
+        },
+        [fetchBearById.pending]: (state, action)=> {
+            state.loading = true;
+        },
+        [fetchBearById.fulfilled]: (state, action)=> {
+            state.loading = false;
+            state.bear = {...action.payload[0]};
+        },
+        [fetchBearById.rejected]: (state, action)=> {
             state.loading = false;
             state.error = action.payload
         },

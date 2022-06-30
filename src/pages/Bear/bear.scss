@@ -1,0 +1,38 @@
+@use '../../sass' as *;
+
+.bear-item {
+  @include flex();
+  flex-direction: column-reverse;
+
+  &--container {
+    @include flex();
+    flex-direction: column;
+    gap: 2rem;
+    width: auto;
+    background: $blue;
+    padding: 2rem;
+  }
+
+  &--img {
+    width: 150px;
+    border-radius: 8px;
+  }
+
+  &--name {
+    margin-bottom: 1rem;
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--btn {
+    align-self: flex-start;
+    margin-left: 2rem;
+    transition: 0.5s;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
