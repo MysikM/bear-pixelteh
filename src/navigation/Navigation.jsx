@@ -9,6 +9,7 @@ const Navigation = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Navigate to='/bears' />} />
+                <Route path="/bear-pixelteh" element={<Navigate to='/bears' />} />
                 <Route path="/bears" element={<Bears />} />
                 <Route path="/bears/:id" element={<Bear />} />
                 <Route path="*" element={<NotFound />} />
