@@ -1,7 +1,7 @@
 @use '../../sass' as *;
 
 .bear--list {
-  @include flex(flex-start, flex-start);
+  @include flex(flex-end, flex-start);
   flex-wrap: wrap;
   gap: 1rem;
   row-gap: 2rem;

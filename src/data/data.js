@@ -1,4 +1,4 @@
-export const URL_CHARACTER = 'https://api.punkapi.com/v2/beers';
+export const URL_BEARS = 'https://api.punkapi.com/v2/beers';
 
 export const categoryBears = [
     {id: 1, name: 'beers that pair with pizza', searchCategory: 'pizza'},
