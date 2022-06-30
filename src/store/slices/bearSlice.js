@@ -5,7 +5,7 @@ export const fetchBears = createAsyncThunk(
     'bears/fetch',
     async (category, thunkAPI) => {
                 try{
-                    const response = await fetch(`${URL_BEARS}${category ? '?food=' : ''}${category || ''}`);
+                    const response = await fetch(`${URL_BEARS}?per_page=80${category ? '&food=' : ''}${category || ''}`);
                     const data = await response.json();
                     if(data?.message) {
                         throw new Error(data?.message);

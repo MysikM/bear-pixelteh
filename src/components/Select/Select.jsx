@@ -1,11 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './select.scss';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {changeSelect} from "../../store/slices/bearSlice";
 
 const CustomSelect = ({selectList}) => {
     const ref = useRef();
     const dispatch = useDispatch();
+    const {bears} =useSelector(state => state.bear);
 
     const [select, setSelect] = useState(selectList[0]);
     const [isView, setIsView] = useState(false);
@@ -16,6 +17,10 @@ const CustomSelect = ({selectList}) => {
         setIsView(false);
         dispatch(changeSelect(item.select));
     };
+
+    useEffect(()=>{
+        setSelect(selectList[0]);
+    }, [bears])
 
 
 
