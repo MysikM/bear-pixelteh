@@ -1,0 +1,1 @@
+export const URL_CHARACTER = 'https://api.punkapi.com/v2/beers';
